@@ -9,16 +9,19 @@
     <link rel="icon" type="image/jpeg" href="/sould-react/assets/mini-logo-DEtuLa5x.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
       <script>
-      /* 404.html se aaye deep-link ko wapas asli path par le jao */
-      (function () {
-        var l = window.location;
+      /* GitHub Pages SPA fallback (404.html) se aaye deep-link ko wapas asli path par le jao */
+      (function (l) {
         if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function (s) { return s.replace(/~and~/g, '&'); }).join('?');
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) { return s.replace(/~and~/g, '&'); })
+            .join('?');
           window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
         }
-      })();
+      })(window.location);
     </script>
-    <script type="module" crossorigin src="/sould-react/assets/index-CLSWdvBz.js"></script>
+    <script type="module" crossorigin src="/sould-react/assets/index-B_r-z4TD.js"></script>
     <link rel="stylesheet" crossorigin href="/sould-react/assets/index-CkIJxbkm.css">
   </head>
   <body class="font-['Plus_Jakarta_Sans',sans-serif] antialiased bg-white text-slate-900 selection:bg-blue-600 selection:text-white">
