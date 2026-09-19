@@ -4,13 +4,17 @@
     <meta charset="utf-8" />
     <title>Soul-D.</title>
     <script>
-      /* GitHub Pages SPA fallback — deep link ko index.html par bhejta hai,
+      /* GitHub Pages SPA fallback — /sould-react/<kuch bhi> ko index.html par bhejo,
          path ko query me rakh kar, taaki React Router wahi page khol sake. */
       (function () {
-        var path = location.pathname.replace(/^\/sould-react/, '') || '/';
-        var q = location.search ? location.search.slice(1) + '&' : '';
-        location.replace(
-          location.origin + '/sould-react/?/' + path.replace(/^\//, '') + '&' + q + 'p=' + path
+        var segmentCount = 1; /* /sould-react */
+        var l = window.location;
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
         );
       })();
     </script>
